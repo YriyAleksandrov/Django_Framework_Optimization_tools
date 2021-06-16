@@ -1,0 +1,29 @@
+[
+  {
+      "name": "hom",
+      "description": "hom",
+      "created": "2021-05-05T00:22:53.704Z",
+      "updated": "2021-05-05T00:22:53.704Z"
+
+  },
+  {
+      "name": "office",
+      "description": "office",
+      "created": "2021-05-05T00:23:17.145Z",
+      "updated": "2021-05-05T00:23:17.145Z"
+
+  },
+  {
+      "name": "modern",
+      "description": "modern",
+      "created": "2021-05-05T00:23:38.430Z",
+      "updated": "2021-05-05T00:23:38.430Z"
+
+  },
+  {
+      "name": "classic",
+      "description": "classic",
+      "created": "2021-05-05T00:24:00.428Z",
+      "updated": "2021-05-05T00:24:00.428Z"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+      "category": "modern",
+      "name": "Family_chair",
+      "image": "products_img/Family_chair.jpg",
+      "short_desc": "Красивый стул",
+      "description": "Очень удобный стул",
+      "price": "38600.84",
+      "quantity": 50
+  },
+  {
+      "category": "office",
+      "name": "Desk",
+      "image": "products_img/Desk.jpg",
+      "short_desc": "Большой стол",
+      "description": "Очень удобный стол",
+      "price": "258000.00",
+      "quantity": 5
+  },
+  {
+      "category": "office",
+      "name": "Watch",
+      "image": "products_img/Watch.jpg",
+      "short_desc": "Большой стол",
+      "description": "Очень удобный стол",
+      "price": "2000.00",
+      "quantity": 5
+  },
+  {
+      "category": "classic",
+      "name": "Lamp",
+      "image": "products_img/Lamp.jpg",
+      "short_desc": "Большой стол",
+      "description": "Очень удобный стол",
+      "price": "8000.00",
+      "quantity": 5
+  },
+  {
+      "category": "hom",
+      "name": "Vase",
+      "image": "products_img/Vase.jpg",
+      "short_desc": "Большой стол",
+      "description": "Очень удобный стол",
+      "price": "2500.00",
+      "quantity": 5
+  }
+]
