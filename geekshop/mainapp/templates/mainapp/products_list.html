@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load my_tags %}
 
 {% block header %}
       <div class="hero-white">
@@ -33,6 +34,10 @@
 
             <h2>
                 Категория: {{ category.name }}
+            </h2>
+            <h2>
+                Картинка:
+                <img src="{{ object.image|media_folder_products }}">
             </h2>
             <div class="paginator">
                 {% if products.has_previous %}

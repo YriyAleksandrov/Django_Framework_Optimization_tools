@@ -2,16 +2,16 @@ import random
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
-from basketapp.models import Basket
+# from basketapp.models import Basket
 from mainapp.models import ProductCategory, Product
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
-def get_basket(user):
-    if user.is_authenticated:
-        return Basket.objects.filter(user=user)
-    else:
-        return []
+# def get_basket(user):
+#     if user.is_authenticated:
+#         return Basket.objects.filter(user=user)
+#     else:
+#         return []
 
 
 def get_hot_product():
@@ -30,7 +30,7 @@ def products(request, pk=None, page=1):
     products = ''
 
     categories = ProductCategory.objects.all()
-    basket = get_basket(request.user)
+    # basket = get_basket(request.user)
 
     if pk is not None:
         if pk == 0:
@@ -60,7 +60,7 @@ def products(request, pk=None, page=1):
         'categories': categories,
         'category': category,
         'products': products_paginator,
-        'basket': basket,
+        # 'basket': basket,
         'hot_product': hot_product,
         'same_products': same_products,
     }
@@ -76,7 +76,7 @@ def product(request, pk):
         'title': title,
         'categories': ProductCategory.objects.all(),
         'product': get_object_or_404(Product, pk=pk),
-        'basket': get_basket(request.user),
+        # 'basket': get_basket(request.user),
     }
 
     return render(request, 'mainapp/product.html', context)
