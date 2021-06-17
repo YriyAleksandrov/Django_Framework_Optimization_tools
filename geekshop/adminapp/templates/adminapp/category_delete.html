@@ -4,11 +4,11 @@
 
 {% block content %}
     <div class="row">
-    <p> Осторожно! Вы точно хотите удалить категорию - {{ category_to_delete.name }} ?</p>
-        <form class="form-horizontal" action="{% url 'admin_staff:category_delete' category_to_delete.pk %}"
+    <p> Осторожно! Вы точно хотите удалить категорию - {{ object.name }} ?</p>
+        <form class="form-horizontal" action="{% url 'admin_staff:category_delete' object.pk %}"
               method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ category_form.as_p }}
+            {{ object.as_p }}
             <input class="btn btn-danger m-3" type="submit" value="Удалить">
         </form>
             <a href="{% url 'admin_staff:categories' %}" class="m-3">
