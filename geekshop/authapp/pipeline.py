@@ -8,17 +8,17 @@ from authapp.models import ShopUserProfile
 
 
 def save_user_profile(backend, user, response, *args, **kwargs):
-    if backend != 'vk-oauth2':
+    if backend.name != 'vk-oauth2':
         return
-
-    api_url = f"http://api.vk.com/method/users.get?fields=bdate,sex,about&access_token={response['access_token']}"
+    params = f"fields=bdate,sex,about,photo_max_orig&v=5.131&access_token={response['access_token']}"
+    api_url = f"http://api.vk.com/method/users.get?{params}"
 
     vk_response = requests.get(api_url)
 
-    if vk_response != 200:
+    if vk_response.status_code != 200:
         return
 
-    vk_data = vk_response.json()['responsee'][0]
+    vk_data = vk_response.json()['response'][0]
 
     if vk_data['sex']:
         if vk_data['sex'] == 2:
@@ -36,5 +36,13 @@ def save_user_profile(backend, user, response, *args, **kwargs):
             user.delete()
             raise AuthForbidden('social_core.backends.vk.VKOAuth2')
         user.age = age
+
+    if vk_data['photo_max_orig']:  # загрузка и сохранение аватарки
+        photo_link = vk_data['photo_max_orig']
+        photo_response = requests.get(photo_link)
+        user_photo_path = f'user_avatars/{user.pk}.jpg'
+        with open(f'media/{user_photo_path}', 'wb') as photo_file:
+            photo_file.write(photo_response.content)  # загрузили
+        user.avatar = user_photo_path  # установили
 
     user.save()

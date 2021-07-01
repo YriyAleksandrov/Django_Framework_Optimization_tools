@@ -30,17 +30,16 @@ class ShopUserProfile(models.Model):
         (FEMALE, 'Ж')
     )
 
-
     user = models.OneToOneField(ShopUser, unique=True, null=False, db_index=True, on_delete=models.CASCADE)
     tagline = models.CharField(verbose_name='теги', max_length=128, blank=True)
     about_me = models.TextField(verbose_name='о себе', max_length=512, blank=True)
     gender = models.CharField(choices=GENDER_CHOICES, verbose_name='пол', max_length=1, blank=True)
 
-    @receiver(post_save, sender=ShopUser)
+    @receiver(post_save, sender=ShopUser)  # создаем сигналы
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
-            ShopUserProfile.objects.create(user=instance)
+            ShopUserProfile.objects.create(user=instance)  # создаем профиль
 
     @receiver(post_save, sender=ShopUser)
     def save_user_profile(sender, instance, **kwargs):
-        instance.shopuserprofile.save()
+        instance.shopuserprofile.save()  # сохраняем профиль
