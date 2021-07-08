@@ -10,4 +10,6 @@ urlpatterns = [
     path('update/<pk>/', ordersapp.OrderUpdate.as_view(), name='update'),
     path('delete/<pk>/', ordersapp.OrderDelete.as_view(), name='delete'),
     path('forming/complete/<pk>/', ordersapp.forming_complete, name='forming_complete'),
+
+    # path('payment/result/', ordersapp.payment_result, name='payment_result')
 ]

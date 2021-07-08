@@ -4,6 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="interkassa-verification" content="e58c088582abfc3d09fe93a1b3560b19" />
     <title>
         {% block title %}
             {{ title|title }}
@@ -18,7 +19,9 @@
     {% endblock %}
 
     {% block js %}
-
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/jquery.formset.js' %}"></script>
+        <script src="{% static 'js/orders_scripts.js' %}"></script>
     {% endblock %}
 </head>
 <body>
